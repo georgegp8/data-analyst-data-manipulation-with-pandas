@@ -38,3 +38,30 @@ print(homelessness.shape)
 
 # Print a description of homelessness
 print(homelessness.describe())
+
+# ------------------------------------------------
+# Sección 2: Partes de un DataFrame
+# ------------------------------------------------
+# Para comprender mejor los objetos DataFrame, es útil saber que constan de tres componentes, 
+# almacenados como atributos:
+# - .values: una matriz NumPy bidimensional de valores.
+# - .columns: un índice de columnas, con los nombres de las columnas.
+# - .index: un índice de las filas, con los números o nombres de fila.
+#
+# Resulta habitual pensar en los índices como una lista de cadenas o números, aunque el tipo 
+# de datos Index de pandas permite opciones más sofisticadas.
+
+# Instrucciones:
+# - Importa pandas utilizando el alias pd.
+# - Imprime una matriz NumPy 2D con los valores de homelessness.
+# - Imprime los nombres de las columnas de homelessness.
+# - Imprime el índice de homelessness.
+
+# Print the values of homelessness
+print(homelessness.values)
+
+# Print the column index of homelessness
+print(homelessness.columns)
+
+# Print the row index of homelessness
+print(homelessness.index)
