@@ -1,0 +1,67 @@
+# Entorno virtual de Python
+venv/
+.venv/
+env/
+ENV/
+bin/
+include/
+lib/
+lib64/
+Scripts/
+pyvenv.cfg
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb_checkpoints/
+
+# IDEs
+.vscode/
+.idea/
+*.iml
+*.code-workspace
+
+# Archivos de datos (descomenta si no quieres subir datos)
+# *.csv
+# *.xlsx
+# *.xls
+# *.json
+# data/
+# datasets/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Variables de entorno y logs
+.env
+.env.local
+*.log
+
+# Testing y coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Type checking
+.mypy_cache/
