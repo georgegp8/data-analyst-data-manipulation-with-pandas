@@ -42,3 +42,38 @@ homelessness_reg_fam = homelessness.sort_values(["region", "family_members"], as
 
 # Print the top few rows
 print(homelessness_reg_fam.head())
+
+# ------------------------------------------------
+# Sección 2: Subconjunto de columnas
+# ------------------------------------------------
+# Cuando trabajas con datos, puede que no necesites todas las variables de tu conjunto de datos. 
+# Los corchetes ( [] ) pueden utilizarse para seleccionar solo las columnas que te interesen 
+# en un orden que tenga sentido para ti.
+#
+# Instrucciones:
+# 1. Crea una Serie llamada individuals que contenga solo la columna individuals de homelessness.
+# 2. Crea un DataFrame llamado state_fam que contenga solo las columnas state y family_members 
+#    de homelessness, en ese orden.
+# 3. Crea un DataFrame llamado ind_state que contenga las columnas individuals y state 
+#    de homelessness, en ese orden.
+
+# --- Paso 1 ---
+# Select the individuals column
+individuals = homelessness["individuals"]
+
+# Print the head of the result
+print(individuals.head())
+
+# --- Paso 2 ---
+# Select the state and family_members columns
+state_fam = homelessness[["state", "family_members"]]
+
+# Print the head of the result
+print(state_fam.head())
+
+# --- Paso 3 ---
+# Select only the individuals and state columns, in that order
+ind_state = homelessness[["individuals", "state"]]
+
+# Print the head of the result
+print(ind_state.head())
