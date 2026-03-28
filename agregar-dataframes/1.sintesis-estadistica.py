@@ -89,3 +89,37 @@ print(sales["temperature_c"].agg(iqr))
 # Update to print IQR of temperature_c, fuel_price_usd_per_l, and unemployment
 print(sales[["temperature_c", "fuel_price_usd_per_l", "unemployment"]].agg(iqr, "median"))
 
+# ------------------------------------------------
+# Sección 4: Estadísticas acumulativas
+# ------------------------------------------------
+# Las estadísticas acumuladas o acumulativas también pueden ser útiles para hacer un seguimiento de las
+# estadísticas resumidas a lo largo del tiempo. En este ejercicio, calcularás la suma acumulada y el máximo
+# acumulado de las ventas semanales de un departamento, lo que te permitirá identificar cuáles han sido los
+# meses con las ventas totales más altas hasta el momento.
+#
+# Se te ha creado un DataFrame llamado sales_1_1, que contiene los datos de ventas del departamento 1 de
+# la tienda 1. pandas se carga como pd.
+
+# Instrucciones:
+# - Ordena las filas de sales_1_1 por la columna date en orden ascendente.
+# - Obtén la suma acumulada de weekly_sales y añádelo como una nueva columna de sales_1_1 llamada
+#   cum_weekly_sales.
+# - Obtén el máximo acumulado de weekly_sales, y añádelo como una columna llamada cum_max_sales.
+# - Imprime las columnas date, weekly_sales, cum_weekly_sales y cum_max_sales.
+
+# Create sales_1_1 with data for store 1, type 1
+sales_1_1 = sales[(sales["store"] == 1) & (sales["type"] == "A")]
+
+# Sort sales_1_1 by date
+sales_1_1 = sales_1_1.sort_values("date", ascending=True)
+
+# Get the cumulative sum of weekly_sales, add as cum_weekly_sales col
+sales_1_1["cum_weekly_sales"] = sales_1_1["weekly_sales"].cumsum()
+
+# Get the cumulative max of weekly_sales, add as cum_max_sales col
+sales_1_1["cum_max_sales"] = sales_1_1["weekly_sales"].cummax()
+
+# See the columns you calculated
+print(sales_1_1[["date", "weekly_sales", "cum_weekly_sales", "cum_max_sales"]])
+
+
