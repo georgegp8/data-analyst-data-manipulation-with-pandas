@@ -5,7 +5,7 @@
 import pandas as pd
 
 # Carga del dataset homelessness
-homelessness = pd.read_csv('homelessness.csv')
+homelessness = pd.read_csv('../homelessness.csv')
 
 # ------------------------------------------------
 # Sección 1: Ordenar filas

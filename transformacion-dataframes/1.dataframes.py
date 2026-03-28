@@ -6,7 +6,7 @@
 import pandas as pd
 
 # Load the homelessness dataset
-homelessness = pd.read_csv('homelessness.csv')
+homelessness = pd.read_csv('../homelessness.csv')
 
 # ------------------------------------------------
 # Sección 1: Inspeccionar un DataFrame
