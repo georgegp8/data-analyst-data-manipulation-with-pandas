@@ -77,3 +77,50 @@ ind_state = homelessness[["individuals", "state"]]
 
 # Print the head of the result
 print(ind_state.head())
+
+# ------------------------------------------------
+# Sección 3: Subconjunto de filas
+# ------------------------------------------------
+# Una parte de la ciencia de los datos consiste en encontrar qué partes del conjunto de datos son interesantes.
+# Una de las técnicas más sencillas para ello es hallar un subconjunto de filas que coincida con algún criterio.
+# A esto se le conoce como filtrado de filas o selección de filas.
+#
+# Existen muchas formas de crear un subconjunto de un DataFrame, quizás la más común es usar operadores relacionales
+# para devolver True o False para cada fila, y luego pasar ese resultado entre corchetes.
+#
+# Ejemplos:
+# - dogs[dogs["height_cm"] > 60]
+# - dogs[dogs["color"] == "tan"]
+#
+# Puedes filtrar por varias condiciones a la vez utilizando el operador &.
+# Ejemplo:
+# - dogs[(dogs["height_cm"] > 60) & (dogs["color"] == "tan")]
+#
+# homelessness está disponible y pandas se carga como pd.
+
+# Instrucciones:
+# - Filtra homelessness para los casos donde el número de individuals sea superior a diez mil,
+#   asignándolos a ind_gt_10k. Muestra el resultado.
+# - Filtra homelessness para los casos donde el código del censo de EE.UU. region es "Mountain",
+#   asignándolos a mountain_reg. Muestra el resultado.
+# - Filtra homelessness para los casos donde el número de family_members sea inferior a mil
+#   y el region sea "Pacific", asignándolo a fam_lt_1k_pac. Muestra el resultado.
+
+# Filter for rows where individuals is greater than 10000
+ind_gt_10k = homelessness[homelessness["individuals"] > 10000]
+
+# See the result
+print(ind_gt_10k)
+
+# Filter for rows where region is Mountain
+mountain_reg = homelessness[homelessness["region"] == "Mountain"]
+
+# See the result
+print(mountain_reg)
+
+# Filter for rows where family_members is less than 1000
+# and region is Pacific
+fam_lt_1k_pac = homelessness[(homelessness["family_members"] < 1000) & (homelessness["region"] == "Pacific")]
+
+# See the result
+print(fam_lt_1k_pac)
