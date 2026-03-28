@@ -124,3 +124,35 @@ fam_lt_1k_pac = homelessness[(homelessness["family_members"] < 1000) & (homeless
 
 # See the result
 print(fam_lt_1k_pac)
+
+# ------------------------------------------------
+# Sección 4: Subconjunto de filas por variables categóricas
+# ------------------------------------------------
+# El subconjunto de datos basado en una variable categórica suele implicar el uso del operador "o",
+# ya que estás seleccionando filas de varias categorías. Esto puede resultar tedioso al escribir,
+# por ejemplo:
+# - dogs[(dogs["breed"] == "Labrador") | (dogs["breed"] == "Chihuahua") | (dogs["breed"] == "Bulldog")]
+#
+# Puedes hacer que tu código sea más conciso usando el método .isin() para abordar el problema
+# escribiendo una sola condición en lugar de tres distintas. Esta vez, pasaremos los valores a una lista:
+#
+# Ejemplo:
+# colors = ["brown", "black", "tan"]
+# condition = dogs["color"].isin(colors)
+# dogs[condition]
+#
+# homelessness está disponible y pandas se carga como pd.
+
+# Instrucciones:
+# - Filtra homelessness para los casos en los que el censo de EE.UU. state aparece en la lista
+#   de estados de Mojave, canu, asignándolos a mojave_homelessness. Muestra el resultado.
+
+# The Mojave Desert states
+canu = ["California", "Arizona", "Nevada", "Utah"]
+
+# Filter for rows in the Mojave Desert states
+mojave_homelessness = homelessness[homelessness["state"].isin(canu)]
+
+# See the result
+print(mojave_homelessness)
+
