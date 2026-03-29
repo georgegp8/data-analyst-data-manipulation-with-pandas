@@ -44,3 +44,36 @@ sales_propn_by_type = [sales_A, sales_B, sales_C] / sales_all
 
 # Print the result
 print(sales_propn_by_type)
+
+# ------------------------------------------------
+# Sección 2: Cálculos con .groupby()
+# ------------------------------------------------
+# El método .groupby() te facilita mucho la vida. En este ejercicio, realizarás los mismos cálculos que la
+# última vez, excepto que utilizarás el método .groupby(). También realizarás cálculos sobre datos agrupados
+# por dos variables para ver si las ventas difieren por tipo de tienda dependiendo de si es una semana festiva o
+# no.
+#
+# sales está disponible y pandas se importa como pd.
+
+# Instrucciones:
+# - Agrupa sales por "type", toma la suma de "weekly_sales" y almacénalo como sales_by_type.
+# - Calcula la proporción de ventas en cada tipo de tienda dividiendo por la suma de sales_by_type. Asigna
+#   a sales_propn_by_type.
+# - Agrupa sales por "type" e "is_holiday", toma la suma de weekly_sales y almacénalo como
+#   sales_by_type_is_holiday.
+
+# Group by type, sum weekly_sales
+sales_by_type = sales.groupby("type")["weekly_sales"].sum()
+
+# Get proportion for each type
+sales_propn_by_type = sales_by_type / sales_by_type.sum()
+
+# Print the result
+print(sales_propn_by_type)
+
+# Group by type and is_holiday, calc total weekly sales
+sales_by_type_is_holiday = sales.groupby(["type", "is_holiday"])["weekly_sales"].sum()
+
+# Print the result
+print(sales_by_type_is_holiday)
+
