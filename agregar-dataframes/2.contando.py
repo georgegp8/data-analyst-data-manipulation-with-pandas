@@ -43,3 +43,46 @@ holiday_dates = sales[sales["is_holiday"]].drop_duplicates("date")
 
 # Print date col of holiday_dates
 print(holiday_dates["date"])
+
+# ------------------------------------------------
+# Sección 2: Contar variables categóricas
+# ------------------------------------------------
+# Contar es una forma estupenda de tener una visión general de tus datos y de detectar curiosidades que de
+# otro modo no notarías. En este ejercicio, contarás el número de cada tipo de tienda y el número de cada
+# número de departamento utilizando los DataFrames que creaste en el ejercicio anterior.
+#
+# Los DataFrames store_types y store_depts que creaste en el último ejercicio están disponibles y pandas
+# se importa como pd.
+
+# Instrucciones:
+# - Cuenta el número de tiendas de cada tienda type en store_types.
+# - Cuenta la proporción de tiendas de cada tienda type en store_types.
+# - Cuenta el número de tiendas de cada department en store_depts, ordenando los recuentos en orden
+#   descendente.
+# - Cuenta la proporción de tiendas de cada department en store_depts, ordenando las proporciones en
+#   orden descendente.
+
+# Count the number of stores of each type
+store_counts = store_types["type"].value_counts()
+
+# Print the store counts
+print(store_counts)
+
+# Get the proportion of stores of each type
+store_props = store_types["type"].value_counts(normalize=True)
+
+# Print the store proportions
+print(store_props)
+
+# Count the number of stores for each department and sort
+dept_counts_sorted = store_depts["department"].value_counts(sort=True)
+
+# Print the department counts
+print(dept_counts_sorted)
+
+# Get the proportion of stores in each department and sort
+dept_props_sorted = store_depts["department"].value_counts(sort=True, normalize=True)
+
+# Print the department proportions
+print(dept_props_sorted)
+
