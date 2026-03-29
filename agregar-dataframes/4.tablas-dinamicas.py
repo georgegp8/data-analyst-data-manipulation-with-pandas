@@ -46,3 +46,32 @@ mean_sales_by_type_holiday = sales.pivot_table(values="weekly_sales", index="typ
 
 # Print mean_sales_by_type_holiday
 print(mean_sales_by_type_holiday)
+
+# ------------------------------------------------
+# Sección 2: Rellenar los valores que faltan y sumar valores con tablas dinámicas
+# ------------------------------------------------
+# El método .pivot_table() tiene varios argumentos útiles, como fill_value y margins.
+#
+# - fill_value sustituye los valores que faltan por un valor real (lo que se conoce como imputación). Con
+#   qué sustituir los valores aumenta es un tema lo suficientemente amplio como para tener su propio curso
+#   (Cómo tratar los datos ausentes en Python), pero lo más sencillo es sustituirlos por un valor ficticio.
+#
+# - margins es un atajo para cuando dinamizas por dos variables, pero también quieres dinamizar por cada
+#   una de esas variables por separado: da los totales de fila y columna del contenido de la tabla dinámica.
+#
+# En este ejercicio, practicarás el uso de estos argumentos para mejorar tus habilidades con las tablas
+# dinámicas, ¡lo que te ayudará a hacer números de forma más eficiente!
+#
+# sales está disponible y pandas se importa como pd.
+
+# Instrucciones:
+# - Imprime la media weekly_sales por department y type completando los valores que faltan con 0.
+# - Imprime la media weekly_sales por department y type completando los valores que faltan con 0 y sumando
+#   todas las filas y columnas.
+
+# Print mean weekly_sales by department and type; fill missing values with 0
+print(sales.pivot_table(values="weekly_sales", index="type", columns="department", fill_value=0))
+
+# Print mean weekly_sales by department and type; fill missing values with 0; sum all rows and cols
+print(sales.pivot_table(values="weekly_sales", index="department", columns="type", fill_value=0, margins=True))
+
