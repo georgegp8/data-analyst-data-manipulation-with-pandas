@@ -77,3 +77,31 @@ sales_by_type_is_holiday = sales.groupby(["type", "is_holiday"])["weekly_sales"]
 # Print the result
 print(sales_by_type_is_holiday)
 
+# ------------------------------------------------
+# Sección 3: Múltiples resúmenes agrupados
+# ------------------------------------------------
+# Anteriormente, en este capítulo, has visto que el método .agg() es útil para calcular múltiples estadísticas
+# sobre múltiples variables. También funciona con datos agrupados. Puedes utilizar funciones integradas como
+# min, max, mean y median.
+#
+# sales está disponible y pandas se importa como pd.
+
+# Instrucciones:
+# - Obtén el mínimo, máximo, la media y la mediana de weekly_sales para cada tipo de tienda utilizando
+#   .groupby() y .agg(). Guárdalo como sales_stats.
+# - Obtén el mínimo, máximo, la media y la mediana de unemployment y fuel_price_usd_per_l para cada
+#   tipo de tienda. Guárdalo como unemp_fuel_stats.
+
+# For each store type, aggregate weekly_sales: get min, max, mean, and median
+sales_stats = sales.groupby("type")["weekly_sales"].agg(["min", "max", "mean", "median"])
+
+# Print sales_stats
+print(sales_stats)
+
+# For each store type, aggregate unemployment and fuel_price_usd_per_l: get min, max, mean, and median
+unemp_fuel_stats = sales.groupby("type")[["unemployment", "fuel_price_usd_per_l"]].agg(["min", "max", "mean", "median"])
+
+# Print unemp_fuel_stats
+print(unemp_fuel_stats)
+
+
