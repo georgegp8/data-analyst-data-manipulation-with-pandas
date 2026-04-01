@@ -67,3 +67,37 @@ print(temperatures[temperatures["city"].isin(cities)])
 # Subset temperatures_ind using .loc[]
 print(temperatures_ind.loc[cities])
 
+# ------------------------------------------------
+# Sección 3: Establecer índices multinivel
+# ------------------------------------------------
+# Los índices también pueden estar formados por varias columnas, formando un índice multinivel
+# (a veces llamado índice jerárquico). Utilizarlos tiene su contrapartida.
+#
+# La ventaja es que los índices multinivel facilitan la interpretación a partir de variables categóricas anidadas.
+# Por ejemplo, en un ensayo clínico, puedes tener grupos de control y de tratamiento. Entonces, cada sujeto de
+# prueba pertenece a uno u otro grupo, y podemos decir que un sujeto de prueba está anidado dentro del grupo
+# de tratamiento. Del mismo modo, en el conjunto de datos de temperatura, la ciudad está anidada en el país, por
+# lo que podemos decir que una ciudad está anidada dentro del país.
+#
+# El principal inconveniente es que el código para manipular índices es distinto del código para manipular
+# columnas, por lo que tienes que aprender dos sintaxis y estar al tanto de cómo se representan tus datos.
+#
+# pandas se carga como pd. temperatures está disponible.
+
+# Instrucciones:
+# - Establece el índice de temperatures en las columnas "country" y "city", y asignado a
+#   temperatures_ind.
+# - Especifica dos pares país/ciudad a conservar: "Brazil" / "Rio De Janeiro" y "Pakistan" / "Lahore",
+#   asignando a rows_to_keep.
+# - Imprime y subconjunta temperatures_ind para rows_to_keep utilizando .loc[].
+
+# Index temperatures by country and city
+temperatures_ind = temperatures.set_index(["country", "city"])
+
+# List of tuples: Brazil, Rio De Janeiro & Pakistan, Lahore
+rows_to_keep = [("Brazil", "Rio De Janeiro"), ("Pakistan", "Lahore")]
+
+# Subset for rows in rows_to_keep
+print(temperatures_ind.loc[rows_to_keep])
+
+
