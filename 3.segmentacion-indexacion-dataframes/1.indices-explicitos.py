@@ -100,4 +100,27 @@ rows_to_keep = [("Brazil", "Rio De Janeiro"), ("Pakistan", "Lahore")]
 # Subset for rows in rows_to_keep
 print(temperatures_ind.loc[rows_to_keep])
 
+# ------------------------------------------------
+# Sección 4: Ordenar por valores índice
+# ------------------------------------------------
+# Antes, cambiabas el orden de las filas de un DataFrame llamando a .sort_values(). También es útil poder
+# ordenar por elementos del índice. Para ello, tienes que utilizar .sort_index().
+#
+# pandas se carga como pd. temperatures_ind tiene un índice multinivel de country y city, y está disponible.
+
+# Instrucciones:
+# - Ordena temperatures_ind por los valores del índice.
+# - Ordena temperatures_ind por los valores del índice en el nivel "city".
+# - Ordena temperatures_ind por país ascendente y ciudad descendente.
+
+# Sort temperatures_ind by index values
+print(temperatures_ind.sort_index())
+
+# Sort temperatures_ind by index values at the city level
+print(temperatures_ind.sort_index(level="city"))
+
+# Sort temperatures_ind by country then descending city
+print(temperatures_ind.sort_index(level=["country", "city"], ascending=[True, False]))
+
+
 
