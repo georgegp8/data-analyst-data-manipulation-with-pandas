@@ -38,3 +38,32 @@ print(temperatures_ind.reset_index())
 
 # Reset the temperatures_ind index, dropping its contents
 print(temperatures_ind.reset_index(drop=True))
+
+# ------------------------------------------------
+# Sección 2: Subconjunto con .loc[]
+# ------------------------------------------------
+# La función clave de los índices es .loc[]: un método de subconjunto que acepta valores de índice.
+# Si le pasas un único argumento, tomará un subconjunto de filas.
+#
+# El código para el subconjunto que utiliza .loc[] puede ser más fácil de leer que el subconjunto
+# estándar de corchetes, lo que puede hacer que tu código sea menos pesado de mantener.
+#
+# pandas se carga como pd. temperatures y temperatures_ind están disponibles; este último está
+# indexado por city.
+
+# Instrucciones:
+# - Crea una lista llamada cities que contenga "London" y "Paris".
+# - Utiliza el subconjunto [] para filtrar temperatures las filas en las que la columna city tome
+#   un valor de la lista cities.
+# - Utiliza el subconjunto .loc[] para filtrar temperatures_ind por las filas en las que la ciudad
+#   está en la lista cities.
+
+# Make a list of cities to subset on
+cities = ["London", "Paris"]
+
+# Subset temperatures using square brackets
+print(temperatures[temperatures["city"].isin(cities)])
+
+# Subset temperatures_ind using .loc[]
+print(temperatures_ind.loc[cities])
+
