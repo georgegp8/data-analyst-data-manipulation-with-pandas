@@ -100,3 +100,35 @@ print(temperatures_ind_date.loc["2010":"2011"])
 
 # Use .loc[] to subset temperatures_ind for rows from Aug 2010 to Feb 2011
 print(temperatures_ind_date.loc["2010-08":"2011-02"])
+
+# ------------------------------------------------
+# Sección 4: Subconjunto por número de fila/columna
+# ------------------------------------------------
+# Las formas más habituales de subconjuntar filas son las que hemos comentado anteriormente: mediante una
+# condición booleana o por etiquetas de índice. Sin embargo, a veces también es útil pasar números de fila.
+#
+# Esto se hace utilizando .iloc[], y, al igual que .loc[], puede tomar dos argumentos para permitirte hacer
+# subconjuntos por filas y columnas.
+#
+# pandas se carga como pd. temperatures (sin índice) está disponible.
+
+# Instrucciones:
+# - Utiliza .iloc[] en temperatures para tomar subconjuntos.
+# - Obtén la fila 23, columna 2 (posiciones índice 22 y 1).
+# - Obtén las 5 primeras filas (posiciones de índice 0 a 5).
+# - Obtén todas las filas, columnas 3 y 4 (posiciones de índice 2 a 4).
+# - Obtén las 5 primeras filas, columnas 3 y 4.
+
+# Get 23rd row, 2nd column (index 22, 1)
+print(temperatures.iloc[22,1])
+
+# Use slicing to get the first 5 rows
+print(temperatures.iloc[:5])
+
+# Use slicing to get columns 3 to 4
+print(temperatures.iloc[:,2:4])
+
+# Use slicing in both directions at once
+print(temperatures.iloc[:5,2:4])
+print(temperatures.head())
+
