@@ -41,3 +41,26 @@ print(temperatures_srt.loc["Lahore":"Manila"])
 
 # Subset rows from Pakistan, Lahore to Philippines, Manila
 print(temperatures_srt.loc[("Pakistan","Lahore"):("Philippines","Manila")])
+
+# ------------------------------------------------
+# Sección 2: Segmentar en ambas direcciones
+# ------------------------------------------------
+# Ya has visto segmentar los DataFrames por filas o por columnas, pero como los DataFrames son objetos
+# bidimensionales, a menudo es natural segmentar ambas dimensiones a la vez. Es decir, pasando dos
+# argumentos a .loc[], puedes subconjuntar por filas y columnas de una sola vez.
+#
+# pandas se carga como pd. temperatures_srt está indexado por país y ciudad, tiene un índice ordenado y
+# está disponible.
+
+# Instrucciones:
+# - Utiliza .loc[] para subdividir las filas de India, Hyderabad a Iraq, Baghdad.
+# - Utiliza la segmentación .loc[] para subconjuntar columnas de date a avg_temp_c.
+
+# Subset rows from India, Hyderabad to Iraq, Baghdad
+print(temperatures_srt.loc[("India","Hyderabad"):("Iraq","Baghdad")])
+
+# Subset columns from date to avg_temp_c
+print(temperatures_srt.loc[:, "date":"avg_temp_c"])
+
+# Subset in both directions at once
+print(temperatures_srt.loc[("India","Hyderabad"):("Iraq","Baghdad"), "date":"avg_temp_c"])
