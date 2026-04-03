@@ -37,3 +37,26 @@ temp_by_country_city_vs_year = temperatures.pivot_table("avg_temp_c",index=["cou
 
 # See the result
 print(temp_by_country_city_vs_year)
+
+# ------------------------------------------------
+# Sección 2: Subconjunto de tablas dinámicas
+# ------------------------------------------------
+# Una tabla dinámica no es más que un DataFrame con índices ordenados, por lo que las técnicas que ya has
+# aprendido pueden utilizarse para subdividirlos. En particular, la combinación .loc[] + segmentar suele ser
+# útil.
+#
+# pandas se carga como pd. temp_by_country_city_vs_year está disponible.
+
+# Instrucciones:
+# - Utiliza .loc[] en temp_by_country_city_vs_year para tomar subconjuntos.
+# - Desde Egypt a India.
+# - Desde Egypt, Cairo a India, Delhi.
+# - Desde Egypt, Cairo a India, Delhi y de 2005 a 2010.
+
+# Subset for Egypt to India
+temp_by_country_city_vs_year.loc["Egypt":"India"]
+# Subset for Egypt, Cairo to India, Delhi
+temp_by_country_city_vs_year.loc[("Egypt","Cairo"):("India","Delhi")]
+# Subset for Egypt, Cairo to India, Delhi, and 2005 to 2010
+temp_by_country_city_vs_year.loc[("Egypt","Cairo"):("India","Delhi"),"2005":"2010"]
+
