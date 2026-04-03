@@ -60,3 +60,43 @@ temp_by_country_city_vs_year.loc[("Egypt","Cairo"):("India","Delhi")]
 # Subset for Egypt, Cairo to India, Delhi, and 2005 to 2010
 temp_by_country_city_vs_year.loc[("Egypt","Cairo"):("India","Delhi"),"2005":"2010"]
 
+# ------------------------------------------------
+# Sección 3: Calcular en una tabla dinámica
+# ------------------------------------------------
+# Las tablas dinámicas están llenas de estadísticas resumidas, pero solo son un primer paso para encontrar
+# algo revelador. A menudo necesitarás realizar más cálculos sobre ellos. Algo habitual es encontrar las filas
+# o columnas donde se produce el valor más alto o más bajo.
+#
+# Recuerda del Capítulo 1 que puedes subconjuntar fácilmente una Serie o un DataFrame para encontrar
+# filas que cumplan una condición lógica usando una sintaxis por ejemplo: series[series > value].
+#
+# pandas se carga como pd y el DataFrame temp_by_country_city_vs_year está disponible. El .head()
+# de este DataFrame se muestra en continuación, con solo algunas de las columnas del año mostradas:
+#
+# country      city         2000     2001     2002     ...    2013
+# Afghanistan  Kabul        15.823   15.848   15.715   ...    16.206
+# Angola       Luanda       24.410   24.427   24.791   ...    24.554
+# Australia    Melbourne    14.320   14.180   14.076   ...    14.742
+#              Sydney       17.567   17.854   17.734   ...    18.090
+# Bangladesh   Dhaka        25.905   25.931   26.095   ...    26.587
+
+# Instrucciones:
+# - Calcula la temperatura media de cada año, asignándola a mean_temp_by_year.
+# - Filtra mean_temp_by_year para el año que tuvo la temperatura media más alta.
+# - Calcula la temperatura media de cada ciudad (a través de las columnas), asignándola a
+#   mean_temp_by_city.
+# - Filtra mean_temp_by_city para la ciudad que tuvo la temperatura media más baja.
+
+# Get the worldwide mean temp by year
+mean_temp_by_year = temp_by_country_city_vs_year.mean(axis="index")
+
+# Filter for the year that had the highest mean temp
+print(mean_temp_by_year[mean_temp_by_year == mean_temp_by_year.max()])
+
+# Get the mean temp by city
+mean_temp_by_city = temp_by_country_city_vs_year.mean(axis="columns")
+
+# Filter for the city that had the lowest mean temp
+print(mean_temp_by_city[mean_temp_by_city == mean_temp_by_city.min()])
+
+
