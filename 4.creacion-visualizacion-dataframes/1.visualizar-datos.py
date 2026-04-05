@@ -87,3 +87,61 @@ avocados.plot(x="nb_sold", y="avg_price", kind="scatter", title="Number of avoca
 
 # Show the plot
 plt.show()
+
+# ------------------------------------------------
+# Sección 4: Precio de los aguacates convencionales frente a los ecológicos
+# ------------------------------------------------
+# Crear varios gráficos para distintos subconjuntos de datos te permite comparar grupos. En este ejercicio,
+# crearás varios histogramas para comparar los precios de los aguacates convencionales y ecológicos.
+#
+# matplotlib.pyplot se ha importado como plt y pandas se ha importado como pd.
+
+# Instrucciones 1/3:
+# - Subconjunta avocados para la columna "conventional" type y crea un histograma de la columna
+#   avg_price.
+# - Crea un histograma de avg_price para los aguacates "organic" type.
+# - Añade una leyenda a tu gráfico, con los nombres "conventional" y "organic".
+# - Muestra tu parcela.
+
+# Histogram of conventional avg_price
+avocados[avocados["type"]=="conventional"]["avg_price"].hist()
+
+# Histogram of organic avg_price
+avocados[avocados["type"]=="organic"]["avg_price"].hist()
+
+# Add a legend
+plt.legend(["conventional", "organic"])
+
+# Show the plot
+plt.show()
+
+# Instrucciones 2/3:
+# - Modifica tu código para ajustar la transparencia de ambos histogramas a 0.5 para ver cuánto
+#   solapamiento hay entre las dos distribuciones.
+
+# Modify histogram transparency to 0.5
+avocados[avocados["type"] == "conventional"]["avg_price"].hist(alpha=0.5)
+
+# Modify histogram transparency to 0.5
+avocados[avocados["type"] == "organic"]["avg_price"].hist(alpha=0.5)
+
+# Add a legend
+plt.legend(["conventional", "organic"])
+
+# Show the plot
+plt.show()
+
+# Instrucciones 3/3:
+# - Modifica tu código para utilizar 20 intervalos en ambos histogramas.
+
+# Modify bins to 20
+avocados[avocados["type"] == "conventional"]["avg_price"].hist(alpha=0.5, bins=20)
+
+# Modify bins to 20
+avocados[avocados["type"] == "organic"]["avg_price"].hist(alpha=0.5, bins=20)
+
+# Add a legend
+plt.legend(["conventional", "organic"])
+
+# Show the plot
+plt.show()
