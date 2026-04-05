@@ -66,3 +66,24 @@ nb_sold_by_date.plot(x="date",y="nb_sold_by_date",kind="line")
 
 # Show the plot
 plt.show()
+
+# ------------------------------------------------
+# Sección 3: Oferta y demanda de aguacate
+# ------------------------------------------------
+# Los gráficos de dispersión son ideales para visualizar relaciones entre variables numéricas. En este ejercicio,
+# compararás el número de aguacates vendidos con el precio medio y verás si están relacionados. Si están
+# relacionados, puedes utilizar un número para predecir el otro.
+#
+# matplotlib.pyplot se ha importado como plt, pandas se ha importado como pd y avocados está
+# disponible.
+
+# Instrucciones:
+# - Crea un gráfico de dispersión con nb_sold en el eje x y avg_price en el eje y. Ponle el siguiente título:
+#   "Number of avocados sold vs. average price".
+# - Muestra el gráfico.
+
+# Scatter plot of avg_price vs. nb_sold with title
+avocados.plot(x="nb_sold", y="avg_price", kind="scatter", title="Number of avocados sold vs. average price")
+
+# Show the plot
+plt.show()
