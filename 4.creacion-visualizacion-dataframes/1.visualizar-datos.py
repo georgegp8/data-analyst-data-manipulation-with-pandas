@@ -41,3 +41,28 @@ nb_sold_by_size.plot(kind="bar")
 
 # Show the plot
 plt.show()
+
+# ------------------------------------------------
+# Sección 2: Cambios en las ventas a lo largo del tiempo
+# ------------------------------------------------
+# Los gráficos de líneas están diseñados para visualizar la relación entre dos variables numéricas, donde cada
+# valor de los datos está conectado con el siguiente. Son especialmente útiles para visualizar el cambio de un
+# número o lo largo del tiempo, ya que cada punto temporal está conectado de forma natural con el punto
+# temporal siguiente. En este ejercicio, visualizarás el cambio en las ventas de aguacate a lo largo de tres años.
+#
+# pandas se ha importado como pd y avocados está disponible.
+
+# Instrucciones:
+# - Obtén el número total de aguacates vendidos en cada fecha. El DataFrame tiene dos filas para cada
+#   fecha: una para ecológico y otra para convencional. Guárdalo como nb_sold_by_date.
+# - Crea un gráfico lineal del número de aguacates vendidos.
+# - Muestra el gráfico.
+
+# Get the total number of avocados sold on each date
+nb_sold_by_date = avocados.groupby("date")["nb_sold"].sum()
+
+# Create a line plot of the number of avocados sold by date
+nb_sold_by_date.plot(x="date",y="nb_sold_by_date",kind="line")
+
+# Show the plot
+plt.show()
