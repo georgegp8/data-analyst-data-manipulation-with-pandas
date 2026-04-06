@@ -40,3 +40,24 @@ avocados_2016.isna().sum().plot(kind="bar")
 
 # Show plot
 plt.show()
+
+# ------------------------------------------------
+# Sección 2: Eliminar valores ausentes
+# ------------------------------------------------
+# Ahora que sabes que hay algunos valores ausentes en tu DataFrame, tienes algunas opciones para tratarlos.
+# Una forma es eliminarlos completamente del conjunto de datos. En este ejercicio, eliminarás los valores
+# ausentes eliminando todas las filas que contengan valores ausentes.
+#
+# pandas se ha importado como pd y avocados_2016 está disponible.
+
+# Instrucciones:
+# - Elimina las filas de avocados_2016 que contengan valores ausentes y almacena las filas restantes en
+#   avocados_complete.
+# - Comprueba que se han eliminado todos los valores que faltan de avocados_complete. Calcula cada
+#   columna que tenga NA e imprímela.
+
+# Remove rows with missing values
+avocados_complete = avocados_2016.dropna()
+
+# Check if any columns contain missing values
+print(avocados_complete.isna().any())
