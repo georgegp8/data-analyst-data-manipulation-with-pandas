@@ -61,3 +61,52 @@ avocados_complete = avocados_2016.dropna()
 
 # Check if any columns contain missing values
 print(avocados_complete.isna().any())
+
+# ------------------------------------------------
+# Sección 3: Sustitución de valores ausentes
+# ------------------------------------------------
+# Otra forma de tratar los valores que faltan es sustituirlos todos por el mismo valor. Para las variables
+# numéricas, una opción es sustituir los valores por 0- lo harás aquí. Sin embargo, cuando sustituyes valores
+# ausentes, haces suposiciones sobre lo que significa un valor ausente. En este caso, supondrás que la falta de
+# un número vendido significa que no se realizaron ventas de ese tipo de aguacate esa semana.
+#
+# En este ejercicio, verás cómo la sustitución de valores ausentes puede afectar a la distribución de una
+# variable utilizando histogramas. Puedes trazar histogramas de varias variables a la vez de la siguiente forma:
+#
+# dogs[["height_cm", "weight_kg"]].hist()
+#
+# pandas se ha importado como pd y matplotlib.pyplot se ha importado como plt. El conjunto de datos
+# avocados_2016 está disponible.
+
+# Instrucciones 1/2:
+# - Se ha creado una lista, cols_with_missing, que contiene los nombres de las columnas con valores
+#   ausentes: "small_sold", "large_sold" y "xl_sold".
+# - Crea un histograma de esas columnas.
+# - Muestra el gráfico.
+
+# List the columns with missing values
+cols_with_missing = ["small_sold", "large_sold", "xl_sold"]
+
+# Create histograms showing the distributions cols_with_missing
+avocados_2016[cols_with_missing].hist()
+
+# Show the plot
+plt.show()
+
+# Instrucciones 2/2:
+# - Sustituye los valores que faltan de avocados_2016 por 0 y guarda el resultado como avocados_filled.
+# - Crea un histograma de las columnas cols_with_missing de avocados_filled.
+
+# From previous step
+cols_with_missing = ["small_sold", "large_sold", "xl_sold"]
+avocados_2016[cols_with_missing].hist()
+plt.show()
+
+# Fill in missing values with 0
+avocados_filled = avocados_2016.fillna(0)
+
+# Create histograms of the filled columns
+avocados_filled[cols_with_missing].hist()
+
+# Show the plot
+plt.show()
