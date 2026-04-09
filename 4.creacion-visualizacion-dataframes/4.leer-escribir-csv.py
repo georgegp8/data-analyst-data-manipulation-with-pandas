@@ -46,3 +46,26 @@ airline_totals["bumps_per_10k"] = airline_totals["nb_bumped"] / airline_totals["
 
 # Print airline_totals
 print(airline_totals)
+
+# ------------------------------------------------
+# Sección 2: DataFrame a CSV
+# ------------------------------------------------
+# ¡Casi! Para facilitar la lectura, tendrás que ordenar los datos y exportarlos a CSV para que tus compañeros
+# puedan leerlos.
+#
+# Se ha importado pandas como pd.
+
+# Instrucciones:
+# - Ordena airline_totals por los valores de bumps_per_10k de mayor a menor, almacenándolos como
+#   airline_totals_sorted.
+# - Imprime tu DataFrame ordenado.
+# - Guarda el DataFrame ordenado como un CSV llamado "airline_totals_sorted.csv".
+
+# Create airline_totals_sorted
+airline_totals_sorted = airline_totals.sort_values("bumps_per_10k", ascending=False)
+
+# Print airline_totals_sorted
+print(airline_totals_sorted)
+
+# Save as airline_totals_sorted.csv
+airline_totals_sorted.to_csv("airline_totals_sorted.csv")
